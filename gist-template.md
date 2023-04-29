@@ -1,12 +1,12 @@
 ## Matching a Hex Value 
 
-In this tutorial, we will explore the regular expression /^#?([a-f0-9]{6}|[a-f0-9]{3})$/ and break down its components to understand how it matches hex values. We will cover each part of the regex, explain its purpose, and provide examples of valid hex values that match the pattern.
+This tutorial will do it's best to analyze the expression /^#?([a-f0-9]{6}|[a-f0-9]{3})$/ and it will attempt to break down it's corresponding components in an attempt to conceptualize how it matches hex values. I will do what I can to cover each part of the regex, try to articulate what it is attempting to do and provide specified examples of correspodning hex values that match the designated patern. 
 
 ## Summary
 
-The regex /^#?([a-f0-9]{6}|[a-f0-9]{3})$/ matches hex values in different formats, allowing both 6-digit and 3-digit representations. The pattern starts with an optional '#' symbol, followed by either 6 hexadecimal characters or 3 hexadecimal characters. This regex is commonly used for validating and extracting hex color codes in various applications.
+The designated regex I will give in this tutorial will be /^#?([a-f0-9]{6}|[a-f0-9]{3})$/ which does in fact match hex values in different formats, allowing both 6-digit and 3-digit representations. A pattern will begin with a '#', which is an optional symbol. That optional symbol will either be followed by six, or three, hexadecimal characters. A regex such as this is often used for verifying and prying out hex color codes which can be used in several ways.
 
-Code snippet of the regex: /^#?([a-f0-9]{6}|[a-f0-9]{3})$/
+Here is a code snippet of this specific regex: /^#?([a-f0-9]{6}|[a-f0-9]{3})$/
 
 ## Table of Contents
 
@@ -30,94 +30,83 @@ Code snippet of the regex: /^#?([a-f0-9]{6}|[a-f0-9]{3})$/
 
 ### Anchors
 
-The regex /^#?([a-f0-9]{6}|[a-f0-9]{3})$/ starts with the caret ^ symbol and ends with the dollar sign $ symbol. These are called anchors and ensure that the regex matches the entire string, not just a part of it. The caret ^ denotes the start of the string, and the dollar sign $ denotes the end. Anchors are used to restrict the regex pattern to match the complete hex value.
+The regex I will be using throughout this tutorial, once again is /^#?([a-f0-9]{6}|[a-f0-9]{3})$/. You can notice that it starts with the caret symbol, which kind of looks like the roof of a house, ^. The regex ends with a $ symbol and my bet is mostly anyone can conceptualize that one easily. These symbols, at the beginning, and end are called anchors and they keep an eye out to make sure the regex matches the entire string rather than only matching certain parts of it. The ^ symbol, which I called the roof, is the start, once again and the $ symbol is the end with a slash preceeding the first sybol and following the last. These are called anchors and they make sure the regex pattern complies the with hex value, in it's entirety. 
 
-Example: The regex will match #a3c8f0 but not #a3c8f0 text.
+An example for this would be that this matches #a3c8f0, but it does not match #a3c8f0.
 
 ### Quantifiers
 
-The regex /^#?([a-f0-9]{6}|[a-f0-9]{3})$/ uses quantifiers to specify the number of occurrences for certain patterns. In this case, {6} and {3} are used to indicate that the preceding character group should appear exactly 6 or 3 times, respectively. The character group [a-f0-9] represents any lowercase alphabets from 'a' to 'f' and any digit from '0' to '9'.
+The formerly mentioned regex, to be used throughout this tutorial uses things referred to as quantifiers. These quantifiers designate the amount of times a specific pattern occurs. So in our regex {6} and {3} are used to show that the preceeding character group, the symbols that preceed those curly braces appear either six, or three times. The character groups, a-f for instance, represent lowercase letters while 0-9, the second character group, represents any digit being used under ten. 
 
-Example: The regex will match #a3c8f0, #abc, but not #a3c8f09.
+An example here would be that the regex matches #a3c8f0, and #abc, but it will not match #a3c8f09.
 
 ### Character Classes
 
-Character classes are denoted by square brackets [] in the regex /^#?([a-f0-9]{6}|[a-f0-9]{3})$/. They define a set of characters from which the regex can match any single character. In this regex, the character class [a-f0-9] allows any lowercase alphabet from 'a' to 'f' and any digit from '0' to '9'.
+The character classes, like the ones mentioned in the "Quantifiers" section are indicated by the symbols, [], where the regex is contained. Inside those symbols the character classes set what single characters can match within those assigned rules. As mentioned in the "Quantifiers" section, our specifications are lower case letters and any digit under ten. 
 
-Example: The regex will match #a3c8f0 and #1b2, but not #g8h1j2.
+An example of this would be a matching of #a3c8f0 and #1b2, but not a match of #g8h1j2.
+
+
 
 ### Flags
 
-In regular expressions, flags are used to modify the behavior of the regex pattern matching. They are added after the closing delimiter of the regular expression and affect how the pattern is applied. Flags are typically represented by a single character.
+In what are referred to as regular expressions flags are used often in order to step in and be the mediator when it comes to regex patterns matching up. These flags are added after the closing delimeter, which makes boundaries clear in many applications, in this case how the pattern is applied and the regular expression as mentioned earlier in this section. 
 
-Here are some commonly used flags:
+The following are some widely used flags:
 
-g (global): This flag allows the regex to match all occurrences of the pattern within the input string, rather than stopping after the first match.
-i (ignore case): This flag enables case-insensitive matching, meaning the regex will match characters regardless of their case (uppercase or lowercase).
-m (multiline): This flag changes the behavior of the ^ and $ anchors to match the start and end of each line within a multiline input string.
-s (dot all): This flag makes the . metacharacter match all characters, including newline characters (\n), which is not the default behavior.
-u (unicode): This flag enables full Unicode matching, including support for Unicode characters outside the Basic Multilingual Plane (BMP).
-In the regex /^#?([a-f0-9]{6}|[a-f0-9]{3})$/, no flags are explicitly specified. However, depending on the programming language or regex engine you're using, certain flags may be applied by default.
+A g flag. This is also called a global flag and it permits the regex to match any occurnece of a pattern within an input string instead of simply pumping the breaks at the first match.
 
-Example: Consider the regex /^#?([a-f0-9]{6}|[a-f0-9]{3})$/ with the JavaScript programming language.
+An i flag. This is also called an ignore case flag and it's easy to understand what it's aim is, given it's title. For instance if you wanted any letter to be used, upper or lower case you would use this flag to ignore an only lower case designation, in the regex as an example. 
 
-Input: #a3c8f0
-Matches: #a3c8f0
-In JavaScript, the default behavior includes the global (g) flag, allowing the regex to match multiple occurrences. However, for this specific regex, the g flag is not necessary since the pattern matches the entire string.
+An m flag. Also referred to as a multiline flag. This flag changes how the anchors act in order to ensure the beginning and ending of each line are matched, within a multiline string. 
 
-Flags provide additional control and flexibility in regular expressions, allowing you to modify the matching behavior according to your specific requirements.
+An s flag. Also called a dot all flag, which would not be your first guess given the letter that is associated with the flag. This ensures, if the user so designates, that all characters match which most certainly is not the default way of operating when it comes to regex's.
 
-Continue with the remaining sections to complete your tutorial.
+A u flag. This is called a unicode flag. This simply allows for unicode matching which means that hexidecimal numbers that you want to match will in fact match.
+
+So in our regex we've been using, once again /^#?([a-f0-9]{6}|[a-f0-9]{3})$/, the user of this tutorial may notice there are no assigned flags. It is possible that some flags can be the default setting, so it is always prudent for the user to check for this. 
+
+An example to consider would be using our designated regex with any form of Javascript. 
+
+So an input of #a3c8f0 matches #a3c8f0 because in Javascript the g flag is on by default. This means the regex can match what are called multiple occurences. Flags serve to give the user more control over their regex in order to get exactly what they want out of it. 
 
 ### Grouping and Capturing
 
-In the regex /^#?([a-f0-9]{6}|[a-f0-9]{3})$/, parentheses () are used for grouping and capturing. The entire pattern inside the parentheses represents a group, allowing us to apply quantifiers and alternation within that group.
+In our regex, the parantheses are in there in order to group and capture. The pattern inside the parantheses is referred to as a group. This allows us, as users, to apply quantifiers as we see fit. We can vary things up as much as we'd like. 
 
-Example: The regex will match #a3c8f0 and capture the hex value a3c8f0 as a group. Similarly, it will match #abc and capture abc as a group.
+An example for this section would be that our regex will match #a3c8f0 while simultaneously capturing the hex value, which  is a3c8fo, as a group. 
 
-Group 1: [a-f0-9]{6}
+Our first group would be [a-f0-9]{6}.
 
-Matches a sequence of exactly 6 characters that can be lowercase alphabets from 'a' to 'f' or digits from '0' to '9'.
-Group 2: [a-f0-9]{3}
+So, in the above group, you can match a sequence of six characters, as designated by the number in the curly braces. 
 
-Matches a sequence of exactly 3 characters that can be lowercase alphabets from 'a' to 'f' or digits from '0' to '9'.
-Example:
+Our second group would be Group 2: [a-f0-9]{3}.
 
-Regex: /^#?([a-f0-9]{6}|[a-f0-9]{3})$/
-Input: #a3c8f0
-Matches: #a3c8f0
-Group 1 Capture: a3c8f0
-Note: The specific programming language or tool you use with this regex will determine how you access the captured group.
+In the second group you can match a sequence of three characters following the same logic from above. 
+
+So, our regex, /^#?([a-f0-9]{6}|[a-f0-9]{3})$/, with an input of #a3c8f0, matches #a3c8f0. An example of a capture from the first group would be a3c8f0. Tools or programming languages may vary how you, the user, accesses the captured group. 
+
+
 
 ### Bracket Expressions
 
-Bracket expressions, represented by square brackets [], allow us to define a range or a set of characters that the regex can match. In the regex /^#?([a-f0-9]{6}|[a-f0-9]{3})$/, the character class [a-f0-9] is used inside the groups. It matches any lowercase alphabet from 'a' to 'f' or any digit from '0' to '9'.
+Next we will cover Bracket Expressions, which are represented by the symbols, []. Bracket Expressions allow us, as user's, to assign designated values or character's that can be expressed while allowing the regex to match it. In our regex our character class [a-f0-9] is utilized inside our groups. As previously mentioned only lowercase letters or digits under ten will match up. 
 
-Example: The regex will match #a3c8f0 and #1b2, but not #g8h1j2.
+An example we can use, here in this section is that #a3c8f0 and #1b2 will match, but #g8h1j2 will not. 
 
 ### Greedy and Lazy Match
 
-In regular expressions, quantifiers like {} and * are greedy by default. This means they match as many occurrences as possible. However, in some cases, you may want to make the quantifiers match as few occurrences as possible. This is known as a lazy or non-greedy match.
+In our expressions we referred to earlier as regular expressions our quantifiers are what are what is called greedy, which is the default setting here, so to speak. This greed comes in the form of matching as many occurences as is possible, very greedy indeed. This is not always a good thing though. Which brings me to my point and the title of this section, "Greedy and Lazy Match". Given our coding definition of greedy you can probably guess what Lazy Match is, in this context. 
 
-In the regex /^#?([a-f0-9]{6}|[a-f0-9]{3})$/, the quantifiers {6} and {3} are greedy. They match exactly 6 and 3 occurrences of the preceding character group, respectively.
+In our regex, the quantifiers {6} and {3} are in fact greedy. They match six and three occurences of the designated character group. Lowercase numbers and digits under ten. 
 
-To make the quantifiers lazy, you can add a ? symbol after them. This changes them from greedy to lazy, causing them to match as few occurrences as possible.
+In order to have the quantifiers be lazy you can add the question mark symbol after them. This designates them to be lazy instead of greedy which can be what the user needs, depending on the given situation. 
 
-Example: Consider the regex /^#?([a-f0-9]{6}|[a-f0-9]{3})?$/.
+Our regex: /^#?([a-f0-9]{6}|[a-f0-9]{3})?$/
 
-Input: #a3c8f0
-Matches: #a3c8f0
-In this example, the lazy quantifier ? allows the pattern to match an optional hex value. As a result, the regex matches the entire string #a3c8f0, even though the quantifier {6} indicates that it should match exactly 6 occurrences of [a-f0-9].
+So for our example in this section we will input #abc #123 which will match #abc. Because of the question mark symbol we only matched #abc instead of #abc #123, which would have been greedy.
 
-Example: Consider the regex /^#?([a-f0-9]{6}|[a-f0-9]{3})?$/.
-
-Input: #abc #123
-Matches: #abc
-In this example, the lazy quantifier ? matches the optional hex value #abc and stops before the space character. Without the lazy quantifier, the greedy behavior would cause the regex to match the entire string #abc #123.
-
-Lazy matching is useful when you want to match the shortest possible substring that satisfies the regex pattern. By default, quantifiers are greedy, but you can make them lazy by adding the ? symbol after them.
-
-Continue with the remaining sections to complete your tutorial.
+Lazy matching can come in handy when you want a shorter substring that still lines up with your regex pattern. The default setting is greedy but you can always change this. 
 
 ### Boundaries
 
