@@ -122,7 +122,7 @@ In this example, the regex matches #a3c8f0 because it begins with the specified 
 
 The dollar sign $ asserts that the regex pattern must match at the end of the string. In the regex /^#?([a-f0-9]{6}|[a-f0-9]{3})$/, the dollar sign $ is used at the end of the regex to ensure that the matching hex value ends at the end of the string. Without the dollar sign, the regex would match a hex value even if there are additional characters following it.
 
-Example: Consider the regex /^#?([a-f0-9]{6}|[a-f0-9]{3})$/.
+Example: Using our regex /^#?([a-f0-9]{6}|[a-f0-9]{3})$/.
 
 Input: #a3c8f0
 Matches: #a3c8f0
@@ -130,7 +130,6 @@ In this example, the regex matches #a3c8f0 because it ends with the specified he
 
 By using the caret ^ and the dollar sign $ in the regex, you can ensure that the hex value matches the entire string and is positioned at the start and end.
 
-Continue with the remaining sections to complete your tutorial.
 
 ### Back-references
 
@@ -156,31 +155,21 @@ In this example, the capturing group (\b\w+) captures a word, and the back-refer
 
 By using back-references, you can refer back to previously captured groups and enforce consistency or find repeated patterns within the text.
 
-Continue with the remaining sections to complete your tutorial.
 
 ### Look-ahead and Look-behind
 
-Look-ahead and look-behind are advanced techniques in regular expressions that allow you to assert certain conditions ahead or behind the current position without including them in the actual match. These are known as zero-width assertions as they do not consume any characters during the match.
+Look-ahead and Look-behind are techniques used in regular expressions that give the user the ability to include conditions as they see fit, either in front of, or after the current position but the user doesn't have to include those conditions they specified in the actual match. These conditions are referred to as zero-width assertions and they are called that because they do not consume any characters throughout the matching process. 
 
-Look-ahead is represented by (?=...), where ... represents the pattern to be matched ahead of the current position. Look-behind is represented by (?<=...), where ... represents the pattern to be matched behind the current position.
+Look-ahead, which is represented by (?=...), in which the dots signifies the pattern that will be matched ahead (Look-ahead) of the current position. 
 
-In the regex /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/, look-ahead and look-behind are used to assert conditions related to the URL structure.
+Look-behind, which is represented by (?<=...), in which the dots represent the pattern to be matched behind (Look-behind) the current position.
 
-Example: Consider the regex /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/.
+In the following regex, which is a new one, /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/, both features, Look-ahead/behind are used specify conditions related to the url structure. By inputing https://www.example.com the user will in fact get a match with https://www.example.com. Here the look-ahead is used to ensure that the URL must start with either http://, or https://. It will not used any characters in the match but it makes certain those URL protocols are used. In the next example the look-behind will be used to make sure that the domain name used the protocol. 
 
-Input: https://www.example.com
-Matches: https://www.example.com
-In this example, the look-ahead (?=...) is used to assert that the URL must start with http:// or https://. It does not consume any characters in the match but ensures that the URL starts with the specified protocol. Similarly, look-behind (?<=...) is used to assert that the domain name should follow the protocol.
+In our regex for this section, ^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/, we can input www.example.com which will match www.example.com because the input does not start with http://, or https://. The regex still manages to match the url. In this case the look-ahead condition is optional which allows the URL's to be used without the protocol. 
 
-Example: Consider the regex /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/.
+Both features are highly usedful tools, so to speak, that will enable the user to validate conditions they specify, either ahead of or behind the current postion in the text. They indeed are highly flexible and exert control over the matching process as the user sees fit to apply them. 
 
-Input: www.example.com
-Matches: www.example.com
-In this example, since the input does not start with http:// or https://, the regex still matches the URL. The look-ahead condition is optional, allowing URLs without the protocol.
-
-Look-ahead and look-behind assertions are powerful tools that enable you to validate certain conditions ahead or behind the current position in the text. They provide flexibility and control over the matching process.
-
-Continue with the remaining sections to complete your tutorial.
 
 
 ## Author
